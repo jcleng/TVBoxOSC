@@ -22,14 +22,14 @@ This repo relies on the following third-party projects:
 # 下载java sdk,比如zulu11.56.19
 # 会生成signkey.jks,记住-alias的值,比如upload
 D:\work\zulu11.56.19-ca-jdk11.0.15-win_x64\bin\keytool.exe -genkey -v -keystore signkey.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-# 输入2次密码,记住,比如123456和123456
+# 输入2次密码,记住,比如123456和654321
 
 # 配置到app\build.gradle文件,与defaultConfig平级
 
 signingConfigs {
     release {
         keyAlias "upload"
-        keyPassword "123456"
+        keyPassword "654321"
         storeFile file("signkey.jks")
         storePassword "123456"
     }
