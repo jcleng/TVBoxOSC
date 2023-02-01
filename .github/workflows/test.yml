@@ -144,6 +144,9 @@ jobs:
           tag_name: release_${{ env.tag }}
           body_path: release.txt
           files: TVBoxOSC/apk/*
+      - name: rm release.txt
+        run: |
+          rm -rf release.txt
       - name: Push to master
         if: ${{ env.commit }}
         run: |
