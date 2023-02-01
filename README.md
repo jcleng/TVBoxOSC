@@ -53,7 +53,7 @@ https://dl.google.com/android/repository/commandlinetools-win-9477386_latest.zip
 # 解压之后使用sdkmanager.bat进行命令行操作
 ## --sdk_root指定sdk的下载目录,--list查看线上的包
 D:\a\cmdline-tools\bin\sdkmanager.bat --sdk_root=D:\a\cmdline-tools\sdk --list
-# 安装包
+# 安装包(为什么是android-30,文件app\build.gradle里面的compileSdkVersion)
 D:\a\cmdline-tools\bin\sdkmanager.bat --sdk_root=D:\a\cmdline-tools\sdk --install "platforms;android-30"
 
 # 编译指定 ANDROID_SDK_ROOT 环境变量来指定sdk目录,或者项目根目录新增local.properties文件
