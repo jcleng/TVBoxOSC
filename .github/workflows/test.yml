@@ -133,6 +133,9 @@ jobs:
         if: ${{ inputs.donotpublish && env.commit }}
         run: |
           echo "commit=" >> $GITHUB_ENV
+      - name: Release set path
+        run: |
+          touch release.txt
       - name: Release and Upload Assets
         uses: softprops/action-gh-release@v1
         env:
