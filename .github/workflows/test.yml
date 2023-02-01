@@ -141,9 +141,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: release_${{ env.tag }}_${{ matrix.userName }}_${{ env.commitS }}
+          tag_name: release_${{ env.tag }}
           body_path: release.txt
-          files: TVBoxOSC/apk/*.apk
+          files: TVBoxOSC/apk/*
       - name: Push to master
         if: ${{ env.commit }}
         run: |
