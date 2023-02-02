@@ -94,3 +94,15 @@ maven { url "https://maven.aliyun.com/repository/google" }
 // jitpack
 maven { url "https://jitpack.io" }
 ```
+
+- linux build in docker
+
+```shell
+docker run -itd -v /home/jcleng/desk/work/androidsdk:/home/jcleng/desk/work/androidsdk \
+-v /home/jcleng/desk/work/zulu11.62.17-ca-jdk11.0.18-linux_x64:/home/jcleng/desk/work/zulu11.62.17-ca-jdk11.0.18-linux_x64 \
+-v /home/jcleng/desk/work/TVBoxOS:/home/jcleng/desk/work/TVBoxOS \
+--name=ubuntu_android ubuntu:20.04
+
+export JAVA_HOME=/home/jcleng/desk/work/zulu11.62.17-ca-jdk11.0.18-linux_x64
+./gradlew assemblerelease --refresh-dependencies --build-cache --parallel --daemon --warning-mode all
+```
