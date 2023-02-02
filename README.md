@@ -66,3 +66,31 @@ sdk.dir=D:\\a\\cmdline-tools\\sdk
 # apk生成位置,没有签名的
 # app\build\outputs\apk\release\app-release-unsigned.apk
 ```
+
+- 国内依赖源
+
+```
+// 修改 build.gradle文件,两个位置
+// 加上--refresh-dependencies参数清除依赖缓存
+// ./gradlew assemblerelease --refresh-dependencies --build-cache --parallel --daemon --warning-mode all
+
+// gradlePluginPortal
+maven {
+    url "https://maven.aliyun.com/repository/gradle-plugin"
+}
+// https://developer.aliyun.com/article/754038
+// central仓和jcenter仓的聚合仓
+maven {
+    url 'https://maven.aliyun.com/repository/public/'
+}
+mavenLocal()
+mavenCentral()
+// walk_shared_librar 包
+maven {
+    url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+}
+// google
+maven { url "https://maven.aliyun.com/repository/google" }
+// jitpack
+maven { url "https://jitpack.io" }
+```
