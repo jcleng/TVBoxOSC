@@ -59,6 +59,8 @@ jobs:
           echo '修改VersionName'
           sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }}\'#" app/build.gradle
           sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
+          echo '修改支持架构类型'
+          sed -i "s/^.*abiFilters.*$/abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'/" app/build.gradle
           echo 'crosswalk源，防挂'
           if grep -q 'crosswalk' build.gradle; then
             sed -i "/crosswalk/a\        maven { url 'https://o0halflife0o.github.io/crosswalk/releases/crosswalk/android/maven2' }" build.gradle
